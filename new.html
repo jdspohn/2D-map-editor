@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="background">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/reset.css">
+    <link rel="stylesheet" href="stylesheets/new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>New - Map Editor</title>
+</head>
+<body>
+
+    <div id="panel">
+
+        <!-- Panel Top -->
+        <div id="panel-top">
+            <span id="file">File</span>
+            <div id="file-menu" hidden>
+                <span id="file-new">New...</span>
+                <span id="file-open">Open...</span>
+                <span id="file-save">Save...</span>
+            </div>
+            <span id="view">View</span>
+            <div id="view-menu" hidden>
+                <span id="view-themes">Themes</span>
+                <span id="view-backgrounds">Backgrounds</span>
+            </div>
+        </div>
+
+        <!-- Instruments -->
+        <div id="instrument-buttons">
+            <div id="move" class="instrument"><i class="fas fa-arrows-alt"></i></div>
+            <div id="eraser" class="instrument"><i class="fas fa-eraser"></i></div>
+            <div id="dropper" class="instrument"><i class="fas fa-eye-dropper"></i></div>
+            <div id="zoom" class="instrument"><i class="fas fa-search"></i></div>
+        </div>
+
+        <!-- Tile Panel -->
+        <div id="tile-panel">
+            <div id="tile-panel-top">
+                <span id="tileset-name">Tile Menu<i class="fas fa-caret-right fa-lg arrow"></i></span>
+            </div>
+            <div id="tile-panel-window">
+                <div id="tile-menu">
+                    <label for="upload-tileset" class="menu-item" id="upload-tileset-label"><i class="fas fa-upload"></i> Upload Tileset . . .</label>
+                    <input id="upload-tileset" type="file" accept=".jpg, .jpeg, .png, .gif" hidden>
+                </div>
+                <div id="tilesets-container"></div>
+            </div>
+        </div>
+
+        <!-- Tool Panel -->
+        <div id="tool-panel">
+            <div id="tool-panel-top">
+                <span id="tool-name">Minimap<i class="fas fa-caret-right fa-lg arrow"></i></span>
+            </div>
+            <div id="tool-panel-window">
+                <div id="tool-menu" hidden>
+                    <span id="tool-menu-minimap" class="menu-item tool-label"><i class="fas fa-chart-area"></i> Minimap</span>
+                    <span id="tool-menu-layers" class="menu-item tool-label"><i class="fas fa-layer-group"></i> Layers</span>
+                    <span id="tool-menu-animation" class="menu-item tool-label"><i class="fas fa-sync-alt"></i> Animation</span>
+                </div>
+                <div id="minimap" class="background tool"></div>
+                <div id="layers" class="tool" hidden></div>
+                <div id="animation" class="tool" hidden></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload / Edit Tileset Form -->
+    <div id="form" hidden>
+        <div id="form-top">
+            <span id="form-title"></span>
+            <div class="close-form"><i class="fas fa-times"></i></div>
+        </div>
+        <div id="form-window"></div>
+        <div id="form-options">
+            <label for="form-name">Tileset Name</label>
+            <input id="form-name" type="text" placeholder="Tileset Name">
+            <label>Tile Dimensions</label>
+            <div id="tile-dimensions-input">
+            <input id="form-tile-width" class="number-input" type="text" placeholder="Width"><input id="form-tile-height" class="number-input" type="text" placeholder="Height">
+            </div>
+            <label class="collapse-button">Tile Padding<i class="fas fa-caret-down fa-lg arrow"></i></label>
+            <div id="tile-padding-input" class="collapsible">
+            <input id="form-padding-h" class="number-input" type="text" placeholder="Horizontal"><input id="form-padding-v" class="number-input" type="text" placeholder="Vertical">
+            </div>
+            <label class="collapse-button">Tileset Margin<i class="fas fa-caret-down fa-lg arrow"></i></label>
+            <div id="tileset-margin-input" class="collapsible">
+            <input id="form-margin-left" class="number-input" type="text" placeholder="Left"><input id="form-margin-right" class="number-input" type="text" placeholder="Right">
+            <input id="form-margin-top" class="number-input" type="text" placeholder="Top"><input id="form-margin-bot" class="number-input" type="text" placeholder="Bottom">
+            </div>
+            <div id="form-delete" class="form-button">DELETE TILESET</div>
+            <div id="form-accept" class="form-button">ACCEPT</div><div id="form-cancel" class="close-form form-button">CANCEL</div>         
+        </div>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="canvas"></canvas>
+
+</body>
+
+<script src="scripts/engine.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/tileset.js"></script>
+<script src="scripts/new.js"></script>
+
+</html>
